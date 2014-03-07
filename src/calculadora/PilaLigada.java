@@ -31,11 +31,15 @@ public class PilaLigada<T> {
        }
    }
    
-   public T Peak()throws Exception{
+   public T peek()throws Exception{
        if(lista.getInicio().getInfo()==null){
            throw new Exception("Pila Vacia");
        }else{
            return lista.getInicio().getInfo();
        }
    }
+   
+   public boolean vacia(){
+        return lista.getInicio()==null;
+    }
 }

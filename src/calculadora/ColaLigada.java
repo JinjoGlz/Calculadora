@@ -38,4 +38,14 @@ public class ColaLigada<T> {
            return lista.getInicio().getInfo();
        }
    }
+   
+   public String toString(){
+        String resultado = "";
+            Nodo<T> aux = lista.getInicio();
+            while (aux != null) {
+                resultado = resultado + aux.getInfo().toString();
+                aux = aux.getLiga();
+        }
+            return resultado;
+    }
 }
