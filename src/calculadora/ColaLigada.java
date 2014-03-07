@@ -31,9 +31,9 @@ public class ColaLigada<T> {
        }
    }
    
-   public T Peak()throws Exception{
+   public T Peek()throws Exception{
        if(lista.getInicio().getInfo()==null){
-           throw new Exception("Pila Vacia");
+           throw new Exception("Cola Vacia");
        }else{
            return lista.getInicio().getInfo();
        }
