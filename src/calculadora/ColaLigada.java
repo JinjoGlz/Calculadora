@@ -48,4 +48,8 @@ public class ColaLigada<T> {
         }
             return resultado;
     }
+   
+   public boolean vacia(){
+        return lista.getInicio()==null;
+    }
 }

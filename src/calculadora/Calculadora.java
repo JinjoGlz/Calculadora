@@ -49,16 +49,56 @@ public class Calculadora {
 
         return colaPostfija;
     }
+     
+     public static Double resolver(ColaLigada<String> posfija) throws Exception{
+         
+         Double a=0.0;
+         Double b=0.0;
+         Double c=0.0;
+         PilaLigada<Double> pila= new PilaLigada<>();
+         while(!posfija.vacia()){
+             String simbolo=posfija.pop();
+           switch (simbolo) {
+                case "^":
+                    b=pila.pop();
+                    a=pila.pop();
+                    pila.push(Math.pow(a, b));
+                    break;
+                case "*":
+                    b=pila.pop();
+                    a=pila.pop();
+                    pila.push(a*b);
+                    break;
+                case "/":
+                    b=pila.pop();
+                    a=pila.pop();
+                    pila.push(a/b);
+                    break;
+                case "+":
+                   b=pila.pop();
+                    a=pila.pop();
+                    pila.push(a+b);
+                    break;
+                case "-":
+                    b=pila.pop();
+                    a=pila.pop();
+                    pila.push(a-b);
+                    break;
+                default:
+                    pila.push(Double.parseDouble(simbolo));
+                    break;
+
+            }
+         }
+         return pila.pop();
+     }
     
     public static void main(String[] args) throws Exception {
+         
         String s="3+5*(1-9+4)";
-        ArrayList<String> a= Utilidades.convertir(s);
-        for (int i = 0; i < a.size(); i++) {
-            System.out.println(a.get(i));
-            
-        }
         ColaLigada<String>posfija= convertirPostfija(s);
         System.out.println(posfija);
+        System.out.println(resolver(posfija));
         
     }
     
